@@ -23,16 +23,17 @@
         </activity>
         <activity
             android:name=".OverviewActivity"
-            android:label="@string/title_activity_overview">
-
-        </activity>
-        <activity android:name=".PoopDetailActivity"
+            android:label="@string/title_activity_overview"></activity>
+        <activity
+            android:name=".PoopDetailActivity"
             android:label="@string/poopdetail_activity_label"
             android:parentActivityName=".OverviewActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:name=".EditPoopActivity"
+            android:label="@string/editpoop_activity_label"></activity>
     </application>
 
 </manifest>

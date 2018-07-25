@@ -23,4 +23,15 @@
     <string name="consistency_label">Consistency:</string>
     <string name="color_label">Color:</string>
     <string name="date_label">Date:</string>
+    <string name="editpoop_activity_label">Poop specification</string>
+
+    <string-array name="poop_types">
+        <item>Snake</item>
+        <item>Explosion</item>
+        <item>Deer</item>
+        <item>Titanic</item>
+        <item>Childbirth</item>
+        <item>Titanic</item>
+        <item>Kraken</item>
+    </string-array>
 </resources>

@@ -2,6 +2,7 @@ package cz.tyckouni.poopio;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.Calendar;
 import java.util.List;
 
 import cz.tyckouni.poopio.base.entities.Poop;
@@ -36,6 +36,8 @@ public class PoopListAdapter extends RecyclerView.Adapter<PoopListAdapter.PoopVi
         Poop current = mPoopList.get(position);
         holder.mPoopDateView.setText(String.valueOf(current.getDateAndTime()));
         holder.mPoopTitleView.setText(current.getType());
+//        TODO: set color of item based on poop color?
+//        holder.mBackgroundLayout.setBackgroundColor(Color.parseColor(current.getColor()));
     }
 
     @Override
@@ -46,6 +48,7 @@ public class PoopListAdapter extends RecyclerView.Adapter<PoopListAdapter.PoopVi
     class PoopViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView mPoopTitleView;
         private final TextView mPoopDateView;
+        private final ViewGroup mBackgroundLayout;
         private final PoopListAdapter mAdapter;
 
         public PoopViewHolder(View itemView, PoopListAdapter adapter) {
@@ -54,6 +57,7 @@ public class PoopListAdapter extends RecyclerView.Adapter<PoopListAdapter.PoopVi
             itemView.setOnClickListener(this);
             mPoopTitleView = itemView.findViewById(R.id.poop_title);
             mPoopDateView = itemView.findViewById(R.id.poop_date);
+            mBackgroundLayout = itemView.findViewById(R.id.background_layout);
 
             this.mAdapter = adapter;
         }

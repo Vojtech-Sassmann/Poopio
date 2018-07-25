@@ -16,7 +16,7 @@ public class Poop implements Serializable {
     private String dateAndTime;
 
     public Poop(Long id, int consistency, int size) {
-        this(id, consistency, size, "Snake", "#441035");
+        this(id, consistency, size, "Snake", "#7a2f04");
     }
 
     public Poop(Long id, int consistency, int size, String type, String color) {
@@ -25,7 +25,7 @@ public class Poop implements Serializable {
         this.size = size;
         this.type = type;
         this.color = color;
-        this.dateAndTime = new SimpleDateFormat("dd.MM.yyyy_HH:mm:ss", Locale.getDefault()).format(new Date());
+        this.dateAndTime = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
     }
 
     public Long getId() {
