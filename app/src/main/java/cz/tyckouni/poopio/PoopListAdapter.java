@@ -1,6 +1,7 @@
 package cz.tyckouni.poopio;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -33,7 +34,7 @@ public class PoopListAdapter extends RecyclerView.Adapter<PoopListAdapter.PoopVi
     @Override
     public void onBindViewHolder(@NonNull PoopListAdapter.PoopViewHolder holder, int position) {
         Poop current = mPoopList.get(position);
-        holder.mPoopDateView.setText(String.valueOf(current.getCalendar().get(Calendar.DATE)));
+        holder.mPoopDateView.setText(String.valueOf(current.getDateAndTime()));
         holder.mPoopTitleView.setText(current.getType());
     }
 
@@ -42,7 +43,7 @@ public class PoopListAdapter extends RecyclerView.Adapter<PoopListAdapter.PoopVi
         return mPoopList.size();
     }
 
-    class PoopViewHolder extends RecyclerView.ViewHolder {
+    class PoopViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView mPoopTitleView;
         private final TextView mPoopDateView;
         private final PoopListAdapter mAdapter;
@@ -50,10 +51,19 @@ public class PoopListAdapter extends RecyclerView.Adapter<PoopListAdapter.PoopVi
         public PoopViewHolder(View itemView, PoopListAdapter adapter) {
             super(itemView);
 
+            itemView.setOnClickListener(this);
             mPoopTitleView = itemView.findViewById(R.id.poop_title);
             mPoopDateView = itemView.findViewById(R.id.poop_date);
 
             this.mAdapter = adapter;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent poopDetailIntent = new Intent(itemView.getContext(), PoopDetailActivity.class);
+            poopDetailIntent.putExtra(OverviewActivity.EXTRA_POOP, mPoopList.get(getLayoutPosition()));
+
+            itemView.getContext().startActivity(poopDetailIntent);
         }
     }
 }

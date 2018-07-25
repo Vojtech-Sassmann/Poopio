@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PoopDetailActivity">
+
+    <TextView
+        android:id="@+id/type_label"
+        android:text="@string/type_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/poopdetail_label" />
+
+    <TextView
+        android:id="@+id/size_label"
+        android:text="@string/size_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type_label"
+        style="@style/poopdetail_label" />
+
+    <TextView
+        android:id="@+id/consistency_label"
+        android:text="@string/consistency_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/size_label"
+        style="@style/poopdetail_label" />
+
+    <TextView
+        android:id="@+id/color_label"
+        android:text="@string/color_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consistency_label"
+        style="@style/poopdetail_label" />
+
+    <TextView
+        android:id="@+id/date_label"
+        android:text="@string/date_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/color_label"
+        style="@style/poopdetail_label" />
+
+    <TextView
+        android:id="@+id/type_value"
+        style="@style/poopdetail_textlabel"
+        app:layout_constraintBottom_toBottomOf="@+id/type_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/type_label" />
+
+    <TextView
+        android:id="@+id/size_value"
+        style="@style/poopdetail_textlabel"
+        app:layout_constraintBottom_toBottomOf="@+id/size_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/size_label" />
+
+    <TextView
+        android:id="@+id/consistency_value"
+        style="@style/poopdetail_textlabel"
+        app:layout_constraintBottom_toBottomOf="@+id/consistency_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/consistency_label" />
+
+    <TextView
+        android:id="@+id/color_value"
+        style="@style/poopdetail_textlabel"
+        app:layout_constraintBottom_toBottomOf="@+id/color_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/color_label" />
+
+    <TextView
+        android:id="@+id/date_value"
+        style="@style/poopdetail_textlabel"
+        app:layout_constraintBottom_toBottomOf="@+id/date_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/date_label" />
+
+</android.support.constraint.ConstraintLayout>

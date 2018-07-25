@@ -1,15 +1,19 @@
 package cz.tyckouni.poopio.base.entities;
 
-import java.util.Calendar;
-import java.util.Date;
 
-public class Poop {
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class Poop implements Serializable {
+    private static final long serialVersionUID = 42L;
     private Long id;
     private int consistency;
     private int size;
     private String type;
     private String color;
-    private Calendar calendar;
+    private String dateAndTime;
 
     public Poop(Long id, int consistency, int size) {
         this(id, consistency, size, "Snake", "#441035");
@@ -21,7 +25,7 @@ public class Poop {
         this.size = size;
         this.type = type;
         this.color = color;
-        this.calendar = Calendar.getInstance();
+        this.dateAndTime = new SimpleDateFormat("dd.MM.yyyy_HH:mm:ss", Locale.getDefault()).format(new Date());
     }
 
     public Long getId() {
@@ -64,12 +68,12 @@ public class Poop {
         this.color = color;
     }
 
-    public Calendar getCalendar() {
-        return calendar;
+    public String getDateAndTime() {
+        return dateAndTime;
     }
 
-    public void setCalendar(Calendar calendar) {
-        this.calendar = calendar;
+    public void setDateAndTime(String dateAndTime) {
+        this.dateAndTime = dateAndTime;
     }
 
     @Override

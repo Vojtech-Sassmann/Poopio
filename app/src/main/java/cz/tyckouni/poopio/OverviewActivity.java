@@ -13,6 +13,7 @@ import cz.tyckouni.poopio.base.entities.Poop;
 
 public class OverviewActivity extends AppCompatActivity {
     private static final String TAG = "OverviewActivity";
+    public static final String EXTRA_POOP = "cz.tyckouni.poopio.extra.POOP";
 
     private List<Poop> mPoopList = new LinkedList<>();
     private int mCounter = 0;
