@@ -1,4 +1,4 @@
-package cz.tyckouni.poopio;
+package cz.tyckouni.poopio.ui.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -21,6 +21,7 @@ import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -39,6 +40,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cz.tyckouni.poopio.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -61,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private View mLogoView;
+
+    private boolean pressedBack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +74,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
 
         mAuth = FirebaseAuth.getInstance();
 
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
+        mLogoView = findViewById(R.id.logo_layout);
+
         // Set up the login form.
         mEmailView = findViewById(R.id.email);
         populateAutoComplete();
@@ -95,6 +103,13 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_login, menu);
+
+        return true;
     }
 
     private void populateAutoComplete() {
@@ -127,6 +142,22 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
         return false;
     }
 
+    @Override
+    public void onBackPressed() {
+        if (pressedBack) {
+            Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+            homeIntent.addCategory(Intent.CATEGORY_HOME);
+            homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(homeIntent);
+        }
+
+        Toast.makeText(MainActivity.this, getString(R.string.exit_toast_text),
+                Toast.LENGTH_LONG)
+                .show();
+
+        pressedBack = true;
+    }
+
     /**
      * Callback received when a permissions request has been completed.
      */
@@ -152,9 +183,6 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
         if (currentUser == null) {
             return;
         }
-
-        Toast.makeText(MainActivity.this, "Authenticated. " + currentUser.getEmail(),
-                Toast.LENGTH_SHORT).show();
 
         Intent overViewIntent = new Intent(this, OverviewActivity.class);
 
@@ -246,6 +274,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
         int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
         mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        mLogoView.setVisibility(show ? View.VISIBLE : View.GONE);
+
         mLoginFormView.animate().setDuration(shortAnimTime).alpha(
                 show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
             @Override
@@ -255,6 +285,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
         });
 
         mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+        mLogoView.setVisibility(show ? View.GONE : View.VISIBLE);
         mProgressView.animate().setDuration(shortAnimTime).alpha(
                 show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
             @Override

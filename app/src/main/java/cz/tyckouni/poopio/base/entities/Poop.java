@@ -8,32 +8,23 @@ import java.util.Locale;
 
 public class Poop implements Serializable {
     private static final long serialVersionUID = 42L;
-    private Long id;
+    private String uid;
     private int consistency;
     private int size;
     private String type;
-    private String color;
-    private String dateAndTime;
+    private int color;
+    private String date;
 
-    public Poop(Long id, int consistency, int size) {
-        this(id, consistency, size, "Snake", "#7a2f04");
+    public Poop() {
+
     }
 
-    public Poop(Long id, int consistency, int size, String type, String color) {
-        this.id = id;
-        this.consistency = consistency;
-        this.size = size;
-        this.type = type;
-        this.color = color;
-        this.dateAndTime = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
+    public String getUid() {
+        return uid;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public int getConsistency() {
@@ -60,20 +51,20 @@ public class Poop implements Serializable {
         this.type = type;
     }
 
-    public String getColor() {
+    public int getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(int color) {
         this.color = color;
     }
 
-    public String getDateAndTime() {
-        return dateAndTime;
+    public String getDate() {
+        return date;
     }
 
-    public void setDateAndTime(String dateAndTime) {
-        this.dateAndTime = dateAndTime;
+    public void setDate(String dateAndTime) {
+        this.date = dateAndTime;
     }
 
     @Override
@@ -81,12 +72,24 @@ public class Poop implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Poop poop = (Poop) o;
-        return id.equals(poop.id);
+        return uid.equals(poop.uid);
     }
 
     @Override
     public int hashCode() {
 
-        return id.hashCode();
+        return uid.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Poop{" +
+                "uid='" + uid + '\'' +
+                ", consistency=" + consistency +
+                ", size=" + size +
+                ", type='" + type + '\'' +
+                ", color=" + color +
+                ", date='" + date + '\'' +
+                '}';
     }
 }

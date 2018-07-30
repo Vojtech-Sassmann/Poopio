@@ -1,15 +1,14 @@
-package cz.tyckouni.poopio;
+package cz.tyckouni.poopio.ui.activities;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jaredrummler.android.colorpicker.ColorPanelView;
 
+import cz.tyckouni.poopio.R;
 import cz.tyckouni.poopio.base.entities.Poop;
 
 public class PoopDetailActivity extends AppCompatActivity {
@@ -37,8 +36,8 @@ public class PoopDetailActivity extends AppCompatActivity {
         mValueType.setText(poop.getType());
         mValueSize.setProgress(poop.getSize());
         mValueConsistency.setProgress(poop.getConsistency());
-        mValueColor.setColor(Color.parseColor(poop.getColor()));
-        mValueDate.setText(poop.getDateAndTime());
+        mValueColor.setColor(poop.getColor());
+        mValueDate.setText(poop.getDate());
     }
 
     private void initTextViews() {

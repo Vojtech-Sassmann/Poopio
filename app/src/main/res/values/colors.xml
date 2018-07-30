@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#795548</color>
-    <color name="colorPrimaryDark">#4E342E</color>
-    <color name="colorAccent">#00C853</color>
+    <color name="colorPrimary">#ee5102</color>
+    <color name="colorPrimaryDark">#bf360c</color>
+    <color name="colorAccent">#79480f</color>
 
-    <color name="defaultPoopColor">#FF53301c</color>
+    <color name="defaultPoopColor">#FF563b2c</color>
     <color name="poopColorYellow1">#FFaa6915</color>
     <color name="poopColorBrown1">#FF3e1f0d</color>
     <color name="poopColorYellow2">#FF5a4e2d</color>

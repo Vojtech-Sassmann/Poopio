@@ -1,4 +1,4 @@
-package cz.tyckouni.poopio;
+package cz.tyckouni.poopio.ui.fragments;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

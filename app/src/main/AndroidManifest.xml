@@ -8,32 +8,46 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_poop_launcher_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_poop_launcher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.activities.MainActivity">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".OverviewActivity"
-            android:label="@string/title_activity_overview"></activity>
+            android:name=".ui.activities.OverviewActivity"
+            android:label="@string/title_activity_overview" />
         <activity
-            android:name=".PoopDetailActivity"
+            android:name=".ui.activities.PoopDetailActivity"
             android:label="@string/poopdetail_activity_label"
-            android:parentActivityName=".OverviewActivity">
+            android:parentActivityName=".ui.activities.OverviewActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".ui.activities.OverviewActivity" />
         </activity>
-        <activity android:name=".EditPoopActivity"
-            android:label="@string/editpoop_activity_label"></activity>
+        <activity
+            android:name=".ui.activities.CreatePoopActivity"
+            android:label="@string/createpoop_activity_label"
+            android:parentActivityName=".ui.activities.OverviewActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.OverviewActivity" />
+        </activity>
+        <activity android:name=".ui.activities.CreditsActivity"
+            android:label="@string/credits_activity_label"
+            android:parentActivityName=".ui.activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

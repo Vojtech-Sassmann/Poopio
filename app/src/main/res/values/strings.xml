@@ -23,13 +23,28 @@
     <string name="consistency_label">Consistency:</string>
     <string name="color_label">Color:</string>
     <string name="date_label">Date:</string>
-    <string name="editpoop_activity_label">Poop specification</string>
+    <string name="createpoop_activity_label">New poop</string>
+    <string name="new_poop_save_button">Save</string>
+    <string name="create_poop_cancel_button">Cancel</string>
+    <string name="connectionerror_dialog_title">Connection error</string>
+    <string name="connectionalert_dialog_okbutton">OK</string>
+    <string name="exit_toast_text">Press one more time to exit application.</string>
+    <string name="menu_item_logout">Logout</string>
+    <string name="options_icon">⋮</string>
+    <string name="creadits_text">Used poop icons made by Freepik from www.flaticon.com</string>
+    <string name="credits_activity_label">Credits</string>
+    <string name="menu_item_credits">Credits</string>
+    <string name="menu_item_delete">Delete</string>
+    <string name="poop_image_description">Poop image</string>
+    <string name="newPoopCreated_toastText">New poop created.</string>
+    <string name="login_poopio">Poopio</string>
+    <string name="poop_logo">Poop logo</string>
 
     <string-array name="poop_types">
         <item>Snake</item>
         <item>Explosion</item>
         <item>Deer</item>
-        <item>Titanic</item>
+        <item>Floater</item>
         <item>Childbirth</item>
         <item>Titanic</item>
         <item>Kraken</item>
