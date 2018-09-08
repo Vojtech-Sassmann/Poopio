@@ -125,7 +125,7 @@ public class OverviewActivity extends AppCompatActivity {
 
 
     public void addPoop(View view) {
-        Intent newPoopIntent = new Intent(getApplicationContext(), CreatePoopActivity.class);
+        Intent newPoopIntent = new Intent(getApplicationContext(), PoopCreationActivity.class);
         startActivityForResult(newPoopIntent, NEW_POOP_REQUEST);
     }
 

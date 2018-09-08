@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,7 +17,6 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,12 +31,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-import cz.tyckouni.poopio.ui.fragments.DatePickerFragment;
+import cz.tyckouni.poopio.ui.fragments.general.DatePickerFragment;
 import cz.tyckouni.poopio.R;
 import cz.tyckouni.poopio.base.entities.Poop;
 import cz.tyckouni.poopio.core.dao.PoopsDao;
 import cz.tyckouni.poopio.core.dao.FBPoopsDaoImpl;
-import cz.tyckouni.poopio.ui.fragments.TimePickerFragment;
+import cz.tyckouni.poopio.ui.fragments.general.TimePickerFragment;
 
 public class CreatePoopActivity extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener, ColorPickerDialogListener,

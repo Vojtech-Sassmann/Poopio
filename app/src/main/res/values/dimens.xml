@@ -5,4 +5,7 @@
     <dimen name="pooplist_item_padding">6dp</dimen>
     <dimen name="pooplist_item_endmargin">28dp</dimen>
     <dimen name="pooplist_item_startmargin">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="recycler_view_margin">8dp</dimen>
 </resources>

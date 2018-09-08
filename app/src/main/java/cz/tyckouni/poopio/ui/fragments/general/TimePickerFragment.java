@@ -1,4 +1,4 @@
-package cz.tyckouni.poopio.ui.fragments;
+package cz.tyckouni.poopio.ui.fragments.general;
 
 import android.app.Dialog;
 import android.app.DialogFragment;

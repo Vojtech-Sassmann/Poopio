@@ -41,12 +41,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activities.OverviewActivity" />
         </activity>
-        <activity android:name=".ui.activities.CreditsActivity"
+        <activity
+            android:name=".ui.activities.CreditsActivity"
             android:label="@string/credits_activity_label"
             android:parentActivityName=".ui.activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.PoopCreationActivity"
+            android:label="@string/title_activity_poop_creation"
+            android:parentActivityName=".ui.activities.OverviewActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.OverviewActivity" />
         </activity>
     </application>
 
