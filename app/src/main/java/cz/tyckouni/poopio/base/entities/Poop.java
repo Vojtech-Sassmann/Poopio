@@ -14,9 +14,18 @@ public class Poop implements Serializable {
     private String type;
     private int color;
     private String date;
+    private String time;
 
     public Poop() {
 
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getUid() {

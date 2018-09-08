@@ -39,6 +39,7 @@
     <string name="newPoopCreated_toastText">New poop created.</string>
     <string name="login_poopio">Poopio</string>
     <string name="poop_logo">Poop logo</string>
+    <string name="poop_label_time">Time</string>
 
     <string-array name="poop_types">
         <item>Snake</item>

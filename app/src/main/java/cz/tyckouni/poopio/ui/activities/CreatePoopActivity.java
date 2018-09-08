@@ -1,6 +1,7 @@
 package cz.tyckouni.poopio.ui.activities;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,15 +31,18 @@ import com.jaredrummler.android.colorpicker.ColorPickerDialogListener;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 import cz.tyckouni.poopio.ui.fragments.DatePickerFragment;
 import cz.tyckouni.poopio.R;
 import cz.tyckouni.poopio.base.entities.Poop;
 import cz.tyckouni.poopio.core.dao.PoopsDao;
 import cz.tyckouni.poopio.core.dao.FBPoopsDaoImpl;
+import cz.tyckouni.poopio.ui.fragments.TimePickerFragment;
 
 public class CreatePoopActivity extends AppCompatActivity implements
-        AdapterView.OnItemSelectedListener, ColorPickerDialogListener, DatePickerDialog.OnDateSetListener {
+        AdapterView.OnItemSelectedListener, ColorPickerDialogListener,
+        DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private static final String TAG = "CreatePoopActivity";
 
@@ -45,6 +50,7 @@ public class CreatePoopActivity extends AppCompatActivity implements
 
     private ColorPanelView mPoopColorPanelView;
     private TextView mDateView;
+    private TextView mTime;
     private SeekBar mSizeSeekBar;
     private SeekBar mConsistencySeekBar;
     private Button mSaveButton;
@@ -68,13 +74,17 @@ public class CreatePoopActivity extends AppCompatActivity implements
 
         mPoopColorPanelView = findViewById(R.id.color_value);
         mDateView = findViewById(R.id.date_value);
+        mTime = findViewById(R.id.time_value);
         mConsistencySeekBar = findViewById(R.id.consistency_value);
         mSizeSeekBar = findViewById(R.id.size_value);
         mSaveButton = findViewById(R.id.save_button);
 
         mPoopsDao = new FBPoopsDaoImpl();
 
-        setDate(Calendar.getInstance());
+        Calendar cal = Calendar.getInstance();
+
+        setDate(cal);
+        setTime(cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE));
     }
 
     @Override
@@ -112,10 +122,18 @@ public class CreatePoopActivity extends AppCompatActivity implements
         setDate(cal);
     }
 
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        setTime(hourOfDay, minute);
+    }
+
+    private void setTime(int hourOfDay, int minute) {
+        mTime.setText(String.format(Locale.getDefault(), "%d:%d", hourOfDay, minute));
+    }
+
     private void setDate(final Calendar calendar) {
         final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
         mDateView.setText(dateFormat.format(calendar.getTime()));
-
     }
 
     public void selectColor(View view) {
@@ -140,6 +158,7 @@ public class CreatePoopActivity extends AppCompatActivity implements
         poop.setConsistency(mConsistencySeekBar.getProgress());
         poop.setSize(mSizeSeekBar.getProgress());
         poop.setDate(mDateView.getText().toString());
+        poop.setTime(mTime.getText().toString());
 
         mPoopsDao.create(poop, mUser, new DatabaseReference.CompletionListener() {
             @Override
@@ -166,5 +185,10 @@ public class CreatePoopActivity extends AppCompatActivity implements
 
     public void cancel(View view) {
         returnReply(RESULT_CANCELED);
+    }
+
+    public void pickTime(View view) {
+        TimePickerFragment fragment = new TimePickerFragment();
+        fragment.show(getFragmentManager(), "time");
     }
 }

@@ -114,12 +114,26 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:onClick="savePoop"
             android:text="@string/new_poop_save_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_label" />
+
+        <TextView
+            android:id="@+id/time_label"
+            style="@style/poopdetail_label"
+            android:text="@string/poop_label_time"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/date_label" />
+
+        <TextView
+            android:id="@+id/time_value"
+            style="@style/poopdetail_textlabel"
+            app:layout_constraintBottom_toBottomOf="@+id/time_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="pickTime"
+            app:layout_constraintTop_toTopOf="@+id/time_label" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
